@@ -1,0 +1,319 @@
+/* ========== Font Setup ========== */
+@font-face {
+  font-family: 'ALTMariaClara';
+  src: url('fonts/ALTMariaClara-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ALTMariaClara';
+  src: url('fonts/ALTMariaClara-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ALTMariaClara';
+  src: url('fonts/ALTMariaClara-Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* ========== Reset & Base ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'ALTMariaClara', sans-serif;
+  line-height: 1.45;
+  background-color: #fffaf5;
+  position: relative;
+  color: #333;
+}
+
+/* Full-screen background image */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('images/back3.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+/* ========== Keychain Home Icon ========== */
+.entry-keychain {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 150px;
+  transition: transform 0.3s ease;
+  z-index: 100;
+}
+.entry-keychain:hover {
+  transform: scale(1.1);
+}
+
+/* ========== Dropdown Menu ========== */
+.top-left-container {
+  position: absolute;
+  top: 200px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background: none;
+  border: none;
+  color: #ff007b;
+  font-size: 2rem;
+  font-family: 'ALTMariaClara', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  text-align: left;
+  white-space: normal;
+  line-height: 1.2;
+  max-width: 200px;
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.95);
+  min-width: 220px;
+  padding: 0.75rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+}
+
+.dropdown-content a,
+#restore-btn {
+  color: #ff007b;
+  padding: 0.5rem 1.25rem;
+  text-decoration: none;
+  display: block;
+  font-size: 1.125rem;
+  font-weight: normal;
+  font-family: 'ALTMariaClara', sans-serif;
+}
+
+.dropdown-content a:hover,
+#restore-btn:hover {
+  background-color: rgba(255, 0, 123, 0.1);
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
+/* ========== Layout ========== */
+.entry-layout {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  gap: 40px;
+  padding: 40px 20px;
+}
+
+/* ========== Sidebar ========== */
+.entry-sidebar {
+  width: 260px;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 200px;
+}
+
+.sidebar-title {
+  font-size: 2rem;
+  color: #ff007b;
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+}
+
+.entry-list {
+  list-style: none;
+}
+
+.entry-list li {
+  margin-bottom: 1rem;
+}
+
+.entry-list a {
+  font-size: 1.25rem;
+  color: #ff007b;
+  text-decoration: none;
+  display: block;
+}
+.entry-list a:hover {
+  text-decoration: underline;
+}
+
+/* ========== Columns ========== */
+.entry-columns {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  height: 100%;
+  gap: 40px;
+}
+
+/* ========== Left Column ========== */
+.entry-left-column {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px;
+  height: 100%;
+}
+
+.left-img-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.left-img-wrapper .real-image {
+  width: 150%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-caption {
+  background: rgba(47, 255, 0, 0.666);
+  padding: 1rem 1.5rem;
+  font-size: 1.125rem;
+  color: #444;
+  margin-top: 0;
+
+  /* Scroll settings */
+  height: 18em;
+  overflow-y: auto;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* ========== Right Column ========== */
+.entry-right-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 40px;
+  overflow: hidden;
+  height: auto;
+  max-height: 100%;
+}
+
+/* ========== Scrollable Text Box ========== */
+.text-box {
+  background: rgba(47, 255, 0, 0.666);
+  padding: 1.5rem;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  overflow-y: auto;
+
+  flex-grow: 1;
+  min-height: 24em;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  width: 100%;
+}
+
+.text-box p {
+  margin-bottom: 1.25rem;
+}
+
+/* Right-side image */
+
+
+/* ========== Prevent Scrollbars ========== */
+html, body,
+.entry-layout,
+.entry-sidebar,
+.entry-columns,
+.entry-left-column {
+  overflow: hidden;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 900px) {
+  .sidebar-title {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  .entry-list a {
+    font-size: 1.125rem;
+  }
+  .text-box p {
+    font-size: 1.125rem;
+  }
+  .image-caption {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    margin-top: 0;
+  }
+  .entry-layout {
+    gap: 30px;
+    padding: 30px 15px;
+  }
+  .entry-left-column,
+  .entry-right-column {
+    padding: 30px 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .entry-list a {
+    font-size: 1rem;
+  }
+  .text-box p {
+    font-size: 1rem;
+  }
+  .image-caption {
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+    margin-top: 0;
+  }
+  .entry-layout {
+    gap: 20px;
+    padding: 20px 10px;
+    flex-direction: column;
+  }
+  .entry-left-column,
+  .entry-right-column {
+    padding: 20px 10px;
+  }
+}

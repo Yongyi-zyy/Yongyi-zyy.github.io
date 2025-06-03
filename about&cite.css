@@ -1,0 +1,169 @@
+/* ========== Font Setup ========== */
+@font-face {
+  font-family: 'ALTMariaClara';
+  src: url('fonts/ALTMariaClara-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ALTMariaClara';
+  src: url('fonts/ALTMariaClara-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'ALTMariaClara';
+  src: url('fonts/ALTMariaClara-Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* ========== Reset & Base ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'ALTMariaClara', sans-serif;
+  line-height: 1.45;
+  background-color: rgba(47, 255, 0, 0.666);
+  position: relative;
+  color: #333;
+}
+
+/* Full-screen background image */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('images/back3.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+/* ========== Keychain Home Icon ========== */
+.entry-keychain {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 150px;
+  transition: transform 0.3s ease;
+  z-index: 100;
+}
+.entry-keychain:hover {
+  transform: scale(1.1);
+}
+
+/* ========== Layout ========== */
+.entry-layout {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  gap: 40px;
+  padding: 40px 20px;
+}
+
+/* ========== Sidebar ========== */
+.entry-sidebar {
+  width: 260px;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 200px;
+}
+
+.sidebar-title {
+  font-size: 2rem;
+  color: #ff007b;
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+}
+
+/* ========== Main Content ========== */
+.entry-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  overflow: hidden;
+}
+
+/* ========== Text Box ========== */
+.text-box {
+  background: rgba(47, 255, 0, 0.666);
+  padding: 1.5rem;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.05);
+  color: #333;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  overflow-y: auto;
+  flex-grow: 1;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  border-radius: 0;
+}
+
+.text-box h3, .text-box h4 {
+  margin-bottom: 1rem;
+}
+
+.text-box p {
+  margin-bottom: 1.25rem;
+}
+
+.text-box a {
+  color: #ff007b;
+  text-decoration: none;
+}
+
+.text-box a:hover {
+  text-decoration: underline;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 900px) {
+  .sidebar-title {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  .text-box {
+    font-size: 1.125rem;
+  }
+  .entry-layout {
+    gap: 30px;
+    padding: 30px 15px;
+    flex-direction: column;
+  }
+  .entry-main {
+    padding: 30px 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .text-box {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  .entry-layout {
+    gap: 20px;
+    padding: 20px 10px;
+  }
+  .entry-main {
+    padding: 20px 10px;
+  }
+}
