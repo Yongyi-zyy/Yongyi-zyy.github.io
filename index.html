@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My Research Keychain</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div>
+    <!-- Dropdown Menu -->
+    <div class="top-left-container">
+      <div class="dropdown">
+        <button class="dropbtn">TRY TO FIND <br> A TYPEFACE AGAIN?<br>;)) ⬇ </button>
+        <div class="dropdown-content">
+          <a href="entry1.html">Female/ Feminist in Typography</a>
+          <a href="javascript:void(0);" id="clear-btn">I NEED A TYPEFACE NOW!</a>
+          <a href="javascript:void(0);" id="restore-btn">I miss the Key Chains...</a>
+          <a href="about.html">About</a>
+          <a href="cite.html">Citation</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Keychain Images -->
+    <a href="entry1.html"><img src="images/keychain1.png" class="keychain-img" id="key1" width="50%"></a>
+    <a href="entry2.html"><img src="images/keychain2.png" class="keychain-img" id="key2" width="50%"></a>
+    <a href="entry3.html"><img src="images/keychain3.png" class="keychain-img" id="key3" width="50%"></a>
+    <a href="entry4.html"><img src="images/keychain4.png" class="keychain-img" id="key4" width="50%"></a>
+    <a href="entry5.html"><img src="images/keychain5.png" class="keychain-img" id="key5" width="50%"></a>
+    <a href="entry6.html"><img src="images/keychain6.png" class="keychain-img" id="key6" width="50%"></a>
+    <a href="entry7.html"><img src="images/keychain7.png" class="keychain-img" id="key7" width="50%"></a>
+    <a href="entry8.html"><img src="images/keychain8.png" class="keychain-img" id="key8" width="50%"></a>
+    <a href="entry9.html"><img src="images/keychain9.png" class="keychain-img" id="key9" width="50%"></a>
+    <a href="entry10.html"><img src="images/keychain10.png" class="keychain-img" id="key10" width="50%"></a>
+
+    <!-- Link Layer (Initially not clickable) -->
+    <div id="link-layer" class="link-layer">
+      <a href="https://www.are.na/yongyi-zhu/everything-about-type" target="_blank">
+        <img src="images/hyper1.png" class="link-image" alt="Link 1">
+      </a>
+      <a href="https://type-department.com/collections/browse-all-fonts" target="_blank">
+        <img src="images/hyper2.png" class="link-image" alt="Link 2">
+      </a>
+      <a href="https://openprocessing.org/sketch/1446020" target="_blank">
+        <img src="images/hyper3.png" class="link-image" alt="Link 3">
+      </a>
+      <a href="https://www.are.na/ela-egidy/type-foundries-cqch5vzbs9c" target="_blank">
+        <img src="images/hyper4.png" class="link-image" alt="Link 4">
+      </a>
+    </div>
+
+    <!-- Audio for Hover -->
+    <audio id="hover-sound" src="sound/keychainsound.mp3" preload="auto"></audio>
+
+    <!-- JavaScript -->
+    <script>
+      const clearBtn = document.getElementById('clear-btn');
+      const restoreBtn = document.getElementById('restore-btn');
+      const keyImages = document.querySelectorAll('.keychain-img');
+      const hoverSound = document.getElementById('hover-sound');
+      const linkLayer = document.getElementById('link-layer');
+
+      // Unlock audio
+      window.addEventListener('DOMContentLoaded', () => {
+        document.body.addEventListener('click', () => {
+          hoverSound.play().then(() => {
+            hoverSound.pause();
+            hoverSound.currentTime = 0;
+          }).catch(() => {});
+        }, { once: true });
+      });
+
+      // Hover sound
+      keyImages.forEach(img => {
+        img.addEventListener('mouseenter', () => {
+          hoverSound.currentTime = 0;
+          hoverSound.play();
+        });
+      });
+
+      // Hide keychains, show links
+      clearBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        keyImages.forEach(img => img.classList.add('hidden'));
+        restoreBtn.style.display = 'inline-block';
+        linkLayer.style.pointerEvents = 'auto';
+      });
+
+      // Restore keychains, hide links
+      restoreBtn.addEventListener('click', function() {
+        keyImages.forEach(img => img.classList.remove('hidden'));
+        restoreBtn.style.display = 'none';
+        linkLayer.style.pointerEvents = 'none';
+      });
+    </script>
+  </div>
+</body>
+</html>
